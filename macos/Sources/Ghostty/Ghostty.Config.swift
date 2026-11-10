@@ -271,6 +271,14 @@ extension Ghostty {
             return v
         }
 
+        var macosSplitTitlebar: Bool {
+            guard let config = self.config else { return true }
+            var value = true
+            let key = "macos-split-titlebar"
+            _ = ghostty_config_get(config, &value, key, UInt(key.lengthOfBytes(using: .utf8)))
+            return value
+        }
+
         var dragHandle: DragHandle {
             let defaultValue = DragHandle.auto
             guard let config = self.config else { return defaultValue }

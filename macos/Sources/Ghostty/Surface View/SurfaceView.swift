@@ -30,6 +30,19 @@ extension Ghostty {
         }
 
         var body: some View {
+            VStack(spacing: 0) {
+                if isSplit && ghostty.config.macosSplitTitlebar {
+                    SurfaceTitleBar(
+                        surfaceView: surfaceView,
+                        isActive: isFocusedSurface && windowFocus
+                    )
+                }
+
+                terminalBody
+            }
+        }
+
+        private var terminalBody: some View {
             let center = NotificationCenter.default
 
             ZStack {

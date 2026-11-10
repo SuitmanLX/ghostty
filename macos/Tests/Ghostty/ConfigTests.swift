@@ -6,6 +6,18 @@ import SwiftUI
 struct ConfigTests {
     // MARK: - Boolean Properties
 
+    @Test func splitTitlebarCanBeDisabledAndReloaded() throws {
+        let config = try TemporaryConfig("")
+        #expect(config.macosSplitTitlebar)
+
+        try config.reload("macos-split-titlebar = false")
+        #expect(config.errors.isEmpty)
+        #expect(!config.macosSplitTitlebar)
+
+        try config.reload("macos-split-titlebar = true")
+        #expect(config.macosSplitTitlebar)
+    }
+
     @Test func initialWindowDefaultsToTrue() throws {
         let config = try TemporaryConfig("")
         #expect(config.initialWindow == true)

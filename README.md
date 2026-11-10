@@ -21,6 +21,25 @@
   </p>
 </p>
 
+## Personal fork: split title bars
+
+This fork is based on Ghostty **v1.4.0**. On macOS, tabs with multiple splits
+show a persistent title bar above each terminal. The title follows the current
+directory; double-click it to pin a name. Enter saves, Escape cancels, and an
+empty name restores the directory label. The title bar's context menu also
+provides **Use Directory Name**. Pinned titles reuse Ghostty's terminal title
+and session restoration, so they follow the surface when it is moved.
+
+The feature is enabled by default. To hide it, add
+`macos-split-titlebar = false` to the configuration and reload it.
+Single-terminal tabs keep the upstream layout. When testing a custom build,
+disable official automatic updates with `auto-update = off` to avoid replacing
+it with an upstream binary.
+
+The implementation was assisted by OpenAI Codex. It references the interaction
+proposed in [upstream PR #12800](https://github.com/ghostty-org/ghostty/pull/12800),
+adapted to v1.4.0's existing `titleOverride` API.
+
 ## About
 
 Ghostty is a terminal emulator that differentiates itself by being

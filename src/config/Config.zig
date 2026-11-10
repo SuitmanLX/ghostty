@@ -3456,6 +3456,15 @@ keybind: Keybinds = .{},
 /// Changing this option at runtime only applies to new windows.
 @"macos-titlebar-style": MacTitlebarStyle = .transparent,
 
+/// Show a persistent title bar above each terminal when a macOS tab has
+/// multiple splits. The bar follows the current directory unless a terminal
+/// title has been set manually. Double-click the bar to rename the split;
+/// submit an empty name to follow the directory again.
+///
+/// This option can be reloaded at runtime. Single-terminal tabs are unaffected.
+/// Enabled by default in this personal fork. Only supported on macOS.
+@"macos-split-titlebar": bool = true,
+
 /// Whether the proxy icon in the macOS titlebar is visible. The proxy icon
 /// is the icon that represents the folder of the current working directory.
 /// You can see this very clearly in the macOS built-in Terminal.app
